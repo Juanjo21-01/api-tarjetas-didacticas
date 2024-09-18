@@ -7,6 +7,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\RolePermisosController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TipoMazoController;
+use App\Http\Controllers\MazoController;
 
 const AUTH_SANCTUM = 'auth:sanctum';
 const USER_ID = 'usuarios/{id}';
@@ -32,5 +34,8 @@ Route::middleware(AUTH_SANCTUM)->group(function(){
     Route::put(USER_ID, [UserController::class, 'update']);
     Route::patch(USER_ID, [UserController::class, 'update']);
     Route::delete(USER_ID, [UserController::class, 'destroy']);
-
+    // Rutas de tipos de mazos
+    Route::apiResource('tipos-mazos', TipoMazoController::class);
+    // Rutas de mazos
+    Route::apiResource('mazos', MazoController::class);
 });
