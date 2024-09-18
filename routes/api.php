@@ -9,6 +9,7 @@ use App\Http\Controllers\RolePermisosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TipoMazoController;
 use App\Http\Controllers\MazoController;
+use App\Http\Controllers\TarjetaController;
 
 const AUTH_SANCTUM = 'auth:sanctum';
 const USER_ID = 'usuarios/{id}';
@@ -38,4 +39,6 @@ Route::middleware(AUTH_SANCTUM)->group(function(){
     Route::apiResource('tipos-mazos', TipoMazoController::class);
     // Rutas de mazos
     Route::apiResource('mazos', MazoController::class);
+    // Rutas de tarjetas
+    Route::apiResource('tarjetas', TarjetaController::class);
 });

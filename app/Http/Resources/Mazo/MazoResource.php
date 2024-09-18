@@ -17,6 +17,13 @@ class MazoResource extends JsonResource
             'tipo_mazo' => $this->tipo_mazo->nombre,
             'user' => $this->user->nombres,
             'creado' => $this->created_at->format('d-m-Y'),
+            'tarjetas' => $this->tarjetas->map(function($tarjeta){
+                return [
+                    'id' => $tarjeta->id,
+                    'pregunta' => $tarjeta->pregunta,
+                    'respuesta' => $tarjeta->respuesta,
+                ];
+            })->toArray(),
         ];
     }
 }
