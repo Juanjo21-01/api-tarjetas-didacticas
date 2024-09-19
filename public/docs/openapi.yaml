@@ -1,0 +1,913 @@
+openapi: 3.0.3
+info:
+  title: 'Documentación de la API Tarjetas Didácticas'
+  description: 'Esta API permite gestionar mazos, tarjetas y usuarios para el juego de tarjetas didácticas.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://api-tarjetas-didacticas.test'
+paths:
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombres:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: xxxovf
+                apellidos:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: v
+                dpi:
+                  type: string
+                  description: 'Must not be greater than 13 characters.'
+                  example: wxajeomytba
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: rutherford.lempi@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: O/ZXs(n5
+                role_id:
+                  type: integer
+                  description: ''
+                  example: 9
+              required:
+                - nombres
+                - apellidos
+                - dpi
+                - email
+                - password
+                - role_id
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: whitney.collier@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: '>7u.Oy!g3>!Kd'
+              required:
+                - email
+                - password
+  /api/auth/logout:
+    get:
+      summary: ''
+      operationId: getApiAuthLogout
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/roles:
+    get:
+      summary: ''
+      operationId: getApiRoles
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiRoles
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 30 characters.'
+                  example: npjjuoxngg
+              required:
+                - nombre
+  '/api/roles/{id}':
+    get:
+      summary: ''
+      operationId: getApiRolesId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiRolesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 30 characters.'
+                  example: uhskvvthngwvkicxua
+              required:
+                - nombre
+    delete:
+      summary: ''
+      operationId: deleteApiRolesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the role.'
+        example: quo
+        required: true
+        schema:
+          type: string
+  /api/permisos:
+    get:
+      summary: ''
+      operationId: getApiPermisos
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiPermisos
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: l
+              required:
+                - nombre
+  '/api/permisos/{id}':
+    get:
+      summary: ''
+      operationId: getApiPermisosId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiPermisosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: 'y'
+              required:
+                - nombre
+    delete:
+      summary: ''
+      operationId: deleteApiPermisosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the permiso.'
+        example: saepe
+        required: true
+        schema:
+          type: string
+  /api/roles-permisos:
+    get:
+      summary: ''
+      operationId: getApiRolesPermisos
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiRolesPermisos
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role_id:
+                  type: integer
+                  description: ''
+                  example: 19
+                permiso_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                estado:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - role_id
+                - permiso_id
+                - estado
+  '/api/roles-permisos/{id}':
+    get:
+      summary: ''
+      operationId: getApiRolesPermisosId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiRolesPermisosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                estado:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - estado
+    delete:
+      summary: ''
+      operationId: deleteApiRolesPermisosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the roles permiso.'
+        example: qui
+        required: true
+        schema:
+          type: string
+  /api/usuarios:
+    get:
+      summary: ''
+      operationId: getApiUsuarios
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  '/api/usuarios/{id}':
+    get:
+      summary: ''
+      operationId: getApiUsuariosId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiUsuariosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombres:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: tqtsxzonfhempkmzscrzgwy
+                apellidos:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: uqmaerap
+                dpi:
+                  type: string
+                  description: 'Must not be greater than 13 characters.'
+                  example: cpyo
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: jayde70@example.org
+                password:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'u"kIC]t8YUTNoH<u`"'''
+                role_id:
+                  type: integer
+                  description: ''
+                  example: 5
+              required:
+                - nombres
+                - apellidos
+                - dpi
+                - email
+                - password
+                - role_id
+    patch:
+      summary: ''
+      operationId: patchApiUsuariosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombres:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: iwplkogzl
+                apellidos:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: nzsm
+                dpi:
+                  type: string
+                  description: 'Must not be greater than 13 characters.'
+                  example: jkyvkgbbnzu
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: geovanny.braun@example.net
+                role_id:
+                  type: integer
+                  description: ''
+                  example: 5
+    delete:
+      summary: ''
+      operationId: deleteApiUsuariosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the usuario.'
+        example: quam
+        required: true
+        schema:
+          type: string
+  /api/tipos-mazos:
+    get:
+      summary: ''
+      operationId: getApiTiposMazos
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiTiposMazos
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: epzbfvgqqwznn
+              required:
+                - nombre
+  '/api/tipos-mazos/{id}':
+    get:
+      summary: ''
+      operationId: getApiTiposMazosId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiTiposMazosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: vjjwpwfkirzltmfrwcgxo
+              required:
+                - nombre
+    delete:
+      summary: ''
+      operationId: deleteApiTiposMazosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tipos mazo.'
+        example: qui
+        required: true
+        schema:
+          type: string
+  /api/mazos:
+    get:
+      summary: ''
+      operationId: getApiMazos
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiMazos
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: kc
+                descripcion:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: rqjhnfoazhpghoojghx
+                tipo_mazo_id:
+                  type: integer
+                  description: ''
+                  example: 12
+              required:
+                - nombre
+                - descripcion
+                - tipo_mazo_id
+  '/api/mazos/{id}':
+    get:
+      summary: ''
+      operationId: getApiMazosId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiMazosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: ertnwe
+                descripcion:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kgipqhgrkjeixhmagyfai
+                tipo_mazo_id:
+                  type: integer
+                  description: ''
+                  example: 8
+              required:
+                - nombre
+                - descripcion
+                - tipo_mazo_id
+    delete:
+      summary: ''
+      operationId: deleteApiMazosId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the mazo.'
+        example: maxime
+        required: true
+        schema:
+          type: string
+  /api/tarjetas:
+    get:
+      summary: ''
+      operationId: getApiTarjetas
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiTarjetas
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pregunta:
+                  type: string
+                  description: ''
+                  example: harum
+                respuesta:
+                  type: string
+                  description: ''
+                  example: aut
+                mazo_id:
+                  type: integer
+                  description: ''
+                  example: 20
+              required:
+                - pregunta
+                - respuesta
+                - mazo_id
+  '/api/tarjetas/{id}':
+    get:
+      summary: ''
+      operationId: getApiTarjetasId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: ''
+      operationId: putApiTarjetasId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pregunta:
+                  type: string
+                  description: ''
+                  example: illo
+                respuesta:
+                  type: string
+                  description: ''
+                  example: iste
+                mazo_id:
+                  type: integer
+                  description: ''
+                  example: 6
+              required:
+                - pregunta
+                - respuesta
+                - mazo_id
+    delete:
+      summary: ''
+      operationId: deleteApiTarjetasId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tarjeta.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
