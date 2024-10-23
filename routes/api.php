@@ -11,8 +11,6 @@ use App\Http\Controllers\TipoMazoController;
 use App\Http\Controllers\MazoController;
 use App\Http\Controllers\TarjetaController;
 
-const USER_ID = 'usuarios/{id}';
-
 // RUTAS DE AUTENTICACIÓN
 Route::prefix('auth')->group(function(){
     Route::post('register', [AuthController::class, 'register'])->middleware('auth:sanctum');
@@ -30,10 +28,10 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('roles-permisos', RolePermisosController::class);
     // Rutas de usuarios
     Route::get('usuarios', [UserController::class, 'index']);
-    Route::get(USER_ID, [UserController::class, 'show']);
-    Route::put(USER_ID, [UserController::class, 'update']);
-    Route::patch(USER_ID, [UserController::class, 'update']);
-    Route::delete(USER_ID, [UserController::class, 'destroy']);
+    Route::get('usuarios/{id}', [UserController::class, 'show']);
+    Route::put('usuarios/{id}', [UserController::class, 'update']);
+    Route::patch('usuarios/{id}', [UserController::class, 'update']);
+    Route::delete('usuarios/{id}', [UserController::class, 'destroy']);
     // Rutas de tipos de mazos
     Route::apiResource('tipos-mazos', TipoMazoController::class);
     // Rutas de mazos
