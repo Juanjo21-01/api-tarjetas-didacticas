@@ -11,18 +11,17 @@ use App\Http\Controllers\TipoMazoController;
 use App\Http\Controllers\MazoController;
 use App\Http\Controllers\TarjetaController;
 
-const AUTENTICACION_SANCTUM = 'auth:sanctum';
 const USER_ID = 'usuarios/{id}';
 
 // RUTAS DE AUTENTICACIÓN
 Route::prefix('auth')->group(function(){
-    Route::post('register', [AuthController::class, 'register'])->middleware(AUTENTICACION_SANCTUM);
+    Route::post('register', [AuthController::class, 'register'])->middleware('auth:sanctum');
     Route::post('login', [AuthController::class, 'login']);
-    Route::get('logout', [AuthController::class, 'logout'])->middleware(AUTENTICACION_SANCTUM);
+    Route::get('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
 // RUTAS PROTEGIDAS
-Route::middleware(AUTENTICACION_SANCTUM)->group(function(){
+Route::middleware('auth:sanctum')->group(function(){
     // Rutas de roles
     Route::apiResource('roles', RoleController::class);
     // Rutas de permisos
