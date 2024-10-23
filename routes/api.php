@@ -42,3 +42,11 @@ Route::middleware(AUTH_SANCTUM)->group(function(){
     // Rutas de tarjetas
     Route::apiResource('tarjetas', TarjetaController::class);
 });
+
+// RUTAS PÚBLICAS
+Route::get('tipos-mazos', [TipoMazoController::class, 'index']);
+Route::get('tipos-mazos/{tipos_mazo}', [TipoMazoController::class, 'show']);
+Route::get('mazos', [MazoController::class, 'index']);
+Route::get('mazos/{mazo}', [MazoController::class, 'show']);
+Route::get('tarjetas', [TarjetaController::class, 'index']);
+Route::get('tarjetas/{tarjeta}', [TarjetaController::class, 'show']);
